@@ -2,6 +2,8 @@
 const path = require("path");
 
 const nextConfig = {
+  compiler: { styledComponents: true },
+  eslint: { ignoreDuringBuilds: true },
   reactStrictMode: true,
   swcMinify: true,
   sassOptions: {

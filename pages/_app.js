@@ -22,6 +22,7 @@ import NextNprogress from "nextjs-progressbar";
 import "../styles/theme.scss";
 import "../styles/globals.scss";
 import "../styles/direction2.scss";
+import "../styles/redesign.scss";
 import { ThemeProvider } from "../src/utilities/theme/ThemeContext";
 import { Snowfall, MaintenancePage } from "@salesgenterp/ui-components";
 import useScrollRestoration from "../src/utilities/hooks/useScrollRestoration";

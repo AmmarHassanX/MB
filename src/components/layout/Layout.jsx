@@ -14,7 +14,7 @@ import useWindowSize from "../../utilities/hooks/useWindowSize";
 import Navigation from "../Navigation/Navigation";
 import TopHeader from "../TopHeader/TopHeader";
 import CartDrawerStack from "../cartDrawer/CartDrawer";
-import Footer from "../footer/footer";
+import SiteFooter from "../redesign/SiteFooter";
 
 const Header = dynamic(() => import("../Header/Header"), { ssr: false });
 
@@ -103,7 +103,7 @@ const Layout = ({ children, businessId }) => {
         flexItem
         sx={{ borderColor: "#231F20", margin: "auto auto 2px auto", width: "100%", maxWidth: "1400px" }}
       /> */}
-      <Footer businessId={businessId} width={width} />
+      <SiteFooter businessId={businessId} />
     </Stack>
   );
 };
