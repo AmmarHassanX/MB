@@ -24,7 +24,7 @@ const Container = styled.div`
   height: 100%;
   padding: 11px;
 
-  // border-bottom: 1px solid var(--text)1a;
+  // border-bottom: 1px solid var(--text);
   // border-bottom: ${(props) =>
     props.combineHeader && "1px solid rgba(119, 119, 119, 0.4)"};
   background-color: var(--bg-elevated);

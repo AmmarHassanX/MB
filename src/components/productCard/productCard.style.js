@@ -2,8 +2,9 @@ import { Rating } from "@mui/material";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 export const ProductCard = styled.div`
-  padding: 0.5rem;
-  /* background: var(--surface); */
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
   position: relative;
   z-index: 1; /* Higher value puts it in front */
   /* border-radius: 5.67px; */
@@ -12,8 +13,8 @@ export const ProductCard = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: visible;
-  transition: all 0.6s;
-  border-radius: 10px;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) ease, border-color var(--dur-fast) ease;
+  border-radius: var(--radius-md);
   /* border: 1px solid #eceaea; */
   cursor: pointer;
   color: ${(props) => props.theme.palette.colors.secondary};
@@ -31,7 +32,9 @@ export const ProductCard = styled.div`
     .imageContainer {
       // border: 1px dashed var(--accent);
     }
-    transform: scale(1.01);
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card);
     .quickView,
     .addToCartContainer {
       opacity: 1;
@@ -55,7 +58,7 @@ export const ProductCard = styled.div`
 export const TiltedCard = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #2e2e6a;
+  background-color: var(--accent-soft);
   position: absolute; /* Positioned relative to the container */
   z-index: -1; /* Lower value puts it behind */
   top: 50%; /* Center vertically */
@@ -277,14 +280,14 @@ export const ProductPrice = styled.div`
   p {
     font-size: 22px;
     font-weight: 500;
-    color: var(--text);
+    color: var(--accent);
     // margin-left: 4px;
     @media only screen and (max-width: 600px) {
       font-size: 1.5rem;
     }
   }
   del {
-    color: var(--text)80;
+    color: var(--text-3);
     font-size: 17px;
     font-weight: 400;
     // margin-left: 4px;

@@ -31,7 +31,7 @@ const SearchHeader = ({ businessId }) => {
           paddingLeft: "23px",
         }}
       >
-        <RiSearch2Line size={19} style={{ color: "var(--text)91" }} />
+        <RiSearch2Line size={19} style={{ color: "var(--text)" }} />
         <input
           style={
             {
@@ -81,7 +81,7 @@ const SearchHeader = ({ businessId }) => {
           onClick={() => dispatch(setOpenDrawer(true))}
           variant="text"
         >
-          <CiMenuFries size={19} style={{ color: "var(--text)91" }} />
+          <CiMenuFries size={19} style={{ color: "var(--text)" }} />
         </Button> */}
       </SearchBox>
       {focus && inputData.length > 2 ? (

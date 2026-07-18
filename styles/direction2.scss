@@ -1,0 +1,131 @@
+/* ============================================================
+   Direction 2 — global polish layer
+   Catches third-party and shared elements that individual
+   component styles don't own: Material UI surfaces (which
+   default to white and would break dark mode), form inputs,
+   tables, swiper arrows, footer, and imagery.
+   ============================================================ */
+
+/* ---- Material UI surfaces: drawers, dialogs, menus, dropdowns ---- */
+.MuiPaper-root {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.MuiDivider-root {
+  border-color: var(--border) !important;
+}
+.MuiTypography-root {
+  color: inherit;
+}
+
+/* ---- Tables (variants table on product details, cart, account) ---- */
+.MuiTableCell-root {
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.MuiTableHead-root .MuiTableCell-root,
+thead th {
+  background: var(--surface-2) !important;
+  font-weight: 500;
+}
+
+/* ---- Form fields ---- */
+input,
+textarea,
+select {
+  color: var(--text);
+  font-family: inherit;
+  accent-color: var(--accent);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-3);
+}
+.MuiOutlinedInput-root {
+  background: var(--surface);
+  color: var(--text) !important;
+}
+.MuiOutlinedInput-notchedOutline {
+  border-color: var(--border) !important;
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--accent) !important;
+}
+.MuiInputLabel-root {
+  color: var(--text-2) !important;
+}
+.MuiCheckbox-root,
+.MuiRadio-root {
+  color: var(--text-2) !important;
+}
+.MuiCheckbox-root.Mui-checked,
+.MuiRadio-root.Mui-checked {
+  color: var(--accent) !important;
+}
+
+/* ---- Ratings & pagination ---- */
+.MuiRating-iconFilled {
+  color: var(--accent) !important;
+}
+.MuiPaginationItem-root {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.MuiPaginationItem-root.Mui-selected {
+  background: var(--accent) !important;
+  color: var(--accent-contrast) !important;
+}
+
+/* ---- Swiper carousel controls ---- */
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--accent) !important;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.12);
+}
+.swiper-pagination-bullet {
+  background: var(--text-3) !important;
+  opacity: 0.6;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent) !important;
+  opacity: 1;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: var(--bg-elevated) !important;
+  color: var(--text-2);
+  border-top: 1px solid var(--border);
+}
+footer a {
+  transition: color var(--dur-fast) ease;
+}
+footer a:hover {
+  color: var(--accent) !important;
+}
+
+/* ---- Imagery: soften all product/banner images ---- */
+main img {
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Buttons inherit the site font ---- */
+button {
+  font-family: inherit;
+}
+
+/* ---- Focus visibility (accessibility + polish) ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

@@ -18,7 +18,7 @@ const Container = styled(Stack)`
     color: var(--text) !important;
     height: 49px;
     width: 49px;
-    background: var(--surface)ad;
+    background: var(--surface);
     font-weight: 900;
     &::after {
       font-size: 25px !important;

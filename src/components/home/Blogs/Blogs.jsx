@@ -26,7 +26,7 @@ const Blogs = () => {
             fontWeight: 400,
             fontSize: "1.5rem",
             textAlign: "center",
-            color: "var(--text)90",
+            color: "var(--text)",
           }}
         >
           Blog posts
@@ -121,7 +121,7 @@ const Blogs = () => {
                       width: "100%",
                       fontWeight: 400,
                       fontSize: "1.4rem",
-                      color: "var(--text)90",
+                      color: "var(--text)",
                       paddingTop: "1rem",
                       minHeight: "6.5rem",
                       maxHeight: "6.5rem",
@@ -129,7 +129,7 @@ const Blogs = () => {
                   >
                     {blog?.title}
                   </p>
-                  <p style={{ fontSize: "1.2rem", color: "var(--text)90" }}>
+                  <p style={{ fontSize: "1.2rem", color: "var(--text)" }}>
                     Posted on{" "}
                     {moment(blog?.insertedTimestamp).format("MMMM DD YYYY")}
                   </p>
