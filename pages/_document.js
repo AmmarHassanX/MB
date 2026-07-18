@@ -36,6 +36,10 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en" dir="ltr">
         <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap"
+            rel="stylesheet"
+          />
           <title>MB Wholesale</title>
           <meta name="description" content="MB Wholesale" />
           <meta

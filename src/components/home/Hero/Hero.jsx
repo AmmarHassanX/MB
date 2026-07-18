@@ -41,26 +41,27 @@ export default function Hero() {
     <Root>
       <Inner>
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p className="eyebrow" variants={lineUp}>
-            WHOLESALE DISTRIBUTION — INDIANAPOLIS
-          </motion.p>
+          <motion.div className="badge" variants={lineUp}>
+            <span className="dot" />
+            Now Accepting Wholesale Orders
+          </motion.div>
           <Headline variants={container}>
-            <motion.span variants={lineUp}>Stock up.</motion.span>
-            <motion.span variants={lineUp}>Sell out.</motion.span>
-            <motion.span variants={lineUp} className="accent">
-              Repeat.
+            <motion.span variants={lineUp}>Your Trusted</motion.span>
+            <motion.span variants={lineUp}>
+              <em className="accent">Wholesale</em> Partner
             </motion.span>
           </Headline>
           <motion.p className="sub" variants={lineUp}>
-            Everything your store needs — case pricing, fast delivery, and
-            deals that keep your shelves moving.
+            Premium vapes, cigars, beverages, and gas station essentials — all
+            under one roof. Bulk pricing, fast delivery, and unmatched quality
+            for retailers nationwide.
           </motion.p>
           <motion.div className="ctas" variants={lineUp}>
             <button type="button" className="primary" onClick={scrollToProducts}>
               Shop deals
             </button>
             <Link href="/account/login">
-              <a className="secondary">Become a customer</a>
+              <a className="secondary">Browse Products</a>
             </Link>
           </motion.div>
         </motion.div>
@@ -90,11 +91,24 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 4.5rem 1.5rem 3.5rem;
 
-  .eyebrow {
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    color: var(--text-3);
-    margin-bottom: 1rem;
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--text-2);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    margin-bottom: 1.4rem;
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
   }
 
   .sub {
@@ -152,15 +166,21 @@ const Inner = styled.div`
 const Headline = styled(motion.h1)`
   display: flex;
   flex-direction: column;
-  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 7vw, 4.8rem);
   font-weight: 600;
-  line-height: 1.06;
+  line-height: 1.12;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin: 0;
 
   .accent {
     color: var(--accent);
+    font-style: normal;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.08em;
+    border-bottom: 4px solid var(--accent);
   }
 `;
 
