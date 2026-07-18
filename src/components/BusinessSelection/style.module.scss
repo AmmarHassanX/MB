@@ -1,0 +1,42 @@
+.containerAnimation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+  animation: animateColor 8s linear infinite;
+}
+@keyframes animateColor {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+.containerAnimation span {
+  position: relative;
+  display: block;
+  height: 70px;
+  width: 70px;
+}
+.containerAnimation span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: #00ff0a;
+  box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a,
+    0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+  transition: 3s;
+  transform: scale(0);
+}
+.containerAnimation span:hover::before {
+  transition: 0s;
+  transform: scale(1);
+}

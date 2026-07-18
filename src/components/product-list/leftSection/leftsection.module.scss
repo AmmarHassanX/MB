@@ -1,0 +1,104 @@
+@import "variables.scss";
+
+.LeftNavContainer {
+  max-width: 20rem;
+  min-width: 15rem;
+  min-height: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // padding: 2rem 0rem 0rem 0rem;
+  color: #777777;
+  // background: var(--surface);
+  // margin-top: 4.6rem;
+  // margin-bottom: 1rem;
+  // ${(props) => props.theme.palette.colors.white};
+  /* margin-right: max(5%, 1em); */
+}
+
+.DropDownHeading {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 0.5rem 0.6rem;
+  height: auto;
+  color: var(--accent);
+  // border-bottom: 3px solid $primary-color;
+  // background: #efefef;
+  min-width: max-content;
+  // border-bottom: 2px solid #000000;
+  // color: $main-color;
+  span {
+    // border-bottom: 2px solid #000000;
+  }
+}
+
+.DropContent {
+  width: 100%;
+  max-height: 500px;
+  overflow: auto;
+  padding: 0.5rem 0;
+  // background: #fbfbfb;
+  // border: 1px solid #e2e1e1;
+  p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    // font-size: 15px;
+    cursor: pointer;
+  }
+
+  .small {
+    font-size: 0.95rem;
+  }
+}
+.icon {
+  color: orange !important;
+  margin-right: 0.8em;
+}
+.DropRow {
+  width: 100%;
+  padding-bottom: 1em;
+  cursor: pointer;
+
+  input {
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-right: 1em;
+    accent-color: #fbbe36;
+    color: #777777;
+    border: 1px solid white !important;
+    outline: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: white !important;
+    }
+  }
+  h6 {
+    font-size: 1.44rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.7rem;
+    max-height: 1.8rem;
+  }
+}
+
+.Hr {
+  border: none;
+  width: 100%;
+  margin: 0.5em 0;
+  background-color: var(--text);
+  height: 1px;
+}

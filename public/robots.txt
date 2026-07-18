@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mbwholesale.salesgenterp.com
+
+# Sitemaps
+Sitemap: https://mbwholesale.salesgenterp.com/sitemap.xml

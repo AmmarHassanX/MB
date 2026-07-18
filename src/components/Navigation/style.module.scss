@@ -1,0 +1,400 @@
+@import "variables.scss";
+$height: 40px;
+
+.container {
+  width: 100%;
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+  background: transparent;
+  box-shadow: 2px 6px 6px 0px #00000014;
+  // border: 1px solid #403823;
+  // background: linear-gradient(to right, $light-primary-color, $primary-color);
+  color: var(--text-2);
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.8rem;
+  color: $primary-color;
+
+  span {
+    transition: 0.4s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .icon {
+    transition: 0.4s;
+    cursor: pointer;
+    margin-right: 0.5em;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.scrolledContainer {
+  @extend .container;
+  top: 0;
+  z-index: 12;
+  animation-name: showHeader;
+  overflow: hidden;
+  // animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  box-shadow: 1px 1px 3px #d1d1d1;
+  position: fixed;
+  animation-fill-mode: forwards;
+  .menuBody {
+    transform: translateX(-42.2%);
+  }
+  .horzMenu {
+    max-width: 96vw;
+  }
+}
+
+@keyframes showHeader {
+  0% {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  50% {
+    min-height: 30px;
+  }
+
+  100% {
+    min-height: max-content;
+    overflow: visible;
+  }
+}
+
+.mainContainer {
+  max-width: 320px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2000; // ensure on top of navbar
+  border: 1px solid #d3d3d3;
+  background-color: var(--surface);
+  border-radius: 10px;
+  max-height: 600px;
+  overflow-x: hidden; // hide horizontal scroll
+  overflow-y: auto; // allow vertical scroll if needed
+  display: flex; // use flex layout
+  flex-direction: column; // vertical stacking of items
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.5rem 0; // consistent padding
+  height: auto; // remove Safari fit-content issues
+  direction: ltr; // avoid rtl spacing bug
+  overflow-y: overlay; /* scrollbar floats over content */
+}
+
+.mainContainer > * {
+  direction: ltr;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center; // vertically align items
+  justify-content: flex-start;
+  gap: 0.4rem; // consistent spacing between icon and text
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2; // fixes Safari extra height
+  white-space: nowrap; // prevent wrapping issues in Safari
+
+  &:hover {
+    font-weight: 500;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    white-space: nowrap; // prevents wrapping in Safari
+    text-transform: capitalize;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.moreMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+  // position: relative;
+  min-width: max-content;
+  height: 100%;
+  cursor: pointer;
+  font-size: 1.0625rem;
+  // background-color: $primary-color;
+  // color: #ffffff;
+
+  p {
+    // padding: 0.2rem;
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: var(--text-2);
+    a {
+      // color:  $primary-color;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}
+
+.navBoxContainer {
+  margin: 0 0;
+  box-shadow: 0px 0px 4px 1px #06060660;
+  background-color: var(--surface);
+  color: var(--accent);
+  z-index: 10000;
+  border-radius: 10px;
+  // border-radius: 4px;
+  position: relative;
+  z-index: 999999;
+}
+@media only screen and (max-width: 2400px) {
+  .navBoxContainer {
+    // margin: 0 36px;
+  }
+}
+@media only screen and (max-width: 2100px) {
+  .navBoxContainer {
+    // margin: 0 28px;
+  }
+}
+@media only screen and (max-width: 2100px) {
+  .navBoxContainer {
+    // margin: 0 20px;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .navLink {
+    font-size: 12px !important;
+
+    a {
+      font-size: 12px !important;
+    }
+  }
+}
+
+//////////nav body/////
+.notch {
+  border-top: 3px solid var(--accent);
+  width: 5px;
+  position: absolute;
+  top: 40px;
+  left: 0%;
+  // transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid var(--accent);
+  z-index: 4;
+}
+
+.menuBody {
+  position: absolute;
+  background: var(--surface);
+  color: var(--text);
+  z-index: 4;
+  min-width: max-content;
+  top: calc($height - 2px);
+  left: 50% !important;
+  transform: translateX(-44.6%);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgb(240, 240, 240);
+  // text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  overflow-x: auto;
+}
+
+.horzMenu {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  background-color: var(--surface);
+  width: max-content;
+  padding: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-height: 75vh;
+  overflow-x: auto;
+  max-width: 93vw;
+  max-height: 650px;
+  min-width: 130px;
+  text-align: left;
+}
+// @media only screen and (min-width: 2200px) {
+//   .horzMenu {
+//     max-width: 135rem;
+//   }
+// }
+.col {
+  width: max-content;
+  height: max-content;
+  padding: 0 0.5rem;
+  min-width: fit-content;
+  // margin-bottom: 1rem;
+
+  .headerLink {
+    font-weight: 400;
+    font-size: 16px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--accent);
+    padding: 0 1rem;
+    &:hover {
+      background-color: var(--surface)90;
+      padding: 0.5rem 1rem;
+      // background: $primary-color;
+    }
+  }
+}
+
+.subCat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  align-items: center;
+  height: 100%;
+  max-height: 450px;
+  overflow: auto;
+  // padding: 0 1.2em;
+  a {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 300;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--text);
+      font-weight: 400;
+
+      // background: $primary-color;
+    }
+  }
+}
+.verticalMenuContainer {
+  max-height: 470px;
+  overflow-y: auto;
+  min-width: 130px;
+  max-width: 100vw;
+}
+
+.verticalMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0;
+  // padding-top: 1rem;
+  a {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+    color: var(--text);
+
+    &:hover {
+      font-weight: 500;
+      // color: $primary-color;
+      // background: $primary-color;
+    }
+  }
+}
+
+.hover {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+  cursor: pointer;
+  // color: $secondary-color;
+  transition: 0.3s;
+
+  &:hover {
+    // color: $secondary-color;
+    // color: $primary-color;
+  }
+}
+
+//////////scroll////////
+.container,
+.verticalMenuContainer,
+.horzMenu,
+.navBoxContainer {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--surface-2);
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+.navItemWrapper {
+  position: relative;
+
+  .subMenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: var(--surface);
+    z-index: 1000;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,0 +1,65 @@
+////////////checkout and cart fonts
+/////////////////
+/* /////remove arrows from number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* //////mui inputs */
+
+.checkout .MuiOutlinedInput-notchedOutline,
+.checkout .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: none !important;
+  outline: none !important;
+}
+/* ////checkbox */
+.checkout .Mui-checked {
+  color: #060606 !important;
+}
+
+/* //////select inputs */
+// .checkout .MuiInputLabel-formControl,
+// .checkout .Mui-focused {
+//   color: grey !important;
+//   font-size: 0.875em;
+// }
+.checkout .MuiInputBase-root .checkout .MuiOutlinedInput-root,
+.checkout .MuiInputBase-colorPrimary,
+.checkout .MuiInputBase-fullWidth,
+.checkout .MuiInputBase-formControl,
+.checkout .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+  background: #fff0ec;
+  border-radius: 10px;
+}
+.checkout .css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+  height: 28px;
+}
+// /* /////stepper length */
+.checkout .MuiStepConnector-line,
+.MuiStepConnector-lineVertical,
+.css-vgb7rt {
+  min-height: 60px !important;
+}
+.checkout .css-vnkopk-MuiStepLabel-iconContainer {
+  padding: 0 !important;
+}
+
+@media only screen and (max-width: 640px) {
+  .checkout .MuiStepConnector-line,
+  .MuiStepConnector-lineVertical,
+  .css-vgb7rt {
+    min-height: 40px !important;
+  }
+}
+
+.checkout .css-vnkopk-MuiStepLabel-iconContainer {
+  padding: 0 !important;
+}

@@ -1,0 +1,60 @@
+.container {
+  // max-height: 530px;
+  overflow: hidden;
+  padding: 0 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // width: 40%;
+  width: 100%;
+  max-width: 100%;
+
+  .mainSwiper {
+    // width: 100%;
+    min-width: 80%;
+    max-width: 100%;
+    max-height: 100%;
+    .img {
+      max-width: 100%;
+      min-height: 30rem;
+    }
+  }
+}
+.mainCarousel {
+  // padding: 3em;
+  // border: 1px solid #d4d4d4;
+  width: 100%;
+  max-width: 40.3rem;
+  // height: 41.5rem;
+  display: grid;
+  place-items: center;
+}
+.thumbContainer {
+  margin: 1rem 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+}
+.thumbSwiper {
+  height: 80px;
+  .thumbSlide {
+    width: 78px;
+    height: 78px;
+    position: relative;
+    margin: auto;
+    // border: 1px solid #d4d4d4;
+    border-radius: 1.186rem;
+    overflow: hidden;
+  }
+}
+// .slide {
+//   height: 591px;
+//   width: 100%;
+//   img {
+//     width: 100%;
+//     height: 591px;
+//     object-fit: contain;
+//   }
+// }

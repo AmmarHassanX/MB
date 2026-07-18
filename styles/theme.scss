@@ -1,0 +1,89 @@
+/* ============================================================
+   MB Wholesale — Design Tokens
+   Single source of truth for colors, spacing, and motion.
+   Components must reference these variables, never raw hex.
+   Theme is controlled by data-theme="dark|light" on <html>.
+   ============================================================ */
+
+:root {
+  /* ---- Brand accent (mode-independent names, mode-specific values below) ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 500ms;
+
+  /* ---- Layout ---- */
+  --container-max: 1440px;
+  --header-height: 72px;
+}
+
+/* ---------------- DARK MODE (default) ---------------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #101413;            /* page background */
+  --bg-elevated: #161b19;   /* slightly raised sections */
+  --surface: #1a201e;       /* cards, panels */
+  --surface-2: #232b28;     /* nested surfaces, image placeholders */
+  --surface-hover: #28322e;
+
+  --text: #f2f5f3;          /* primary text */
+  --text-2: #9fada7;        /* secondary text */
+  --text-3: #6f7c76;        /* muted / hints */
+
+  --accent: #2eb082;        /* dark green accent (lighter in dark mode for contrast) */
+  --accent-hover: #3cc794;
+  --accent-contrast: #0d1512; /* text placed ON the accent */
+  --accent-soft: rgba(46, 176, 130, 0.12); /* tinted backgrounds */
+
+  --border: #2b3430;
+  --border-strong: #3a4641;
+
+  --danger: #e05252;
+  --success: #2eb082;
+  --warning: #e0a83c;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------------- LIGHT MODE ---------------- */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f6f8f6;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef2ef;
+  --surface-hover: #e6ece8;
+
+  --text: #161b18;
+  --text-2: #5f6b65;
+  --text-3: #8b968f;
+
+  --accent: #14684b;        /* deeper green on light backgrounds for contrast */
+  --accent-hover: #0f523b;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(20, 104, 75, 0.10);
+
+  --border: #e0e6e2;
+  --border-strong: #c9d2cc;
+
+  --danger: #c43d3d;
+  --success: #14684b;
+  --warning: #a87718;
+
+  --shadow-card: 0 4px 20px rgba(22, 27, 24, 0.08);
+}
+
+/* Smooth recolor when the user flips the toggle */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color var(--dur-base) ease, color var(--dur-base) ease,
+    border-color var(--dur-base) ease, fill var(--dur-base) ease !important;
+}

@@ -1,0 +1,26 @@
+.checkBox {
+  width: 100%;
+  // @include flexRow(flex-start);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+
+  p {
+    font-size: 0.75rem;
+    // font-weight: 300;
+  }
+  span {
+    color: red;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  input {
+    margin-right: 1rem;
+    cursor: pointer;
+    scale: 1.5;
+  }
+}

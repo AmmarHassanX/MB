@@ -1,0 +1,334 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif !important;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  ::selection {
+    color: var(--accent-contrast);
+    background: var(--accent);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+*::-webkit-scrollbar {
+  width: 10px; /* Scrollbar width */
+  height: 8px; /* Horizontal scrollbar (optional) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(136, 136, 136);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--surface-2); /* Scrollbar track background */
+  border-radius: 4px; /* Rounded scrollbar track */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Black.ttf) format("truetype");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-ExtraBold.ttf) format("truetype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Medium.ttf) format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Regular.ttf) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Light.ttf) format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-ExtraLight.ttf) format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins-Thin.ttf) format("truetype");
+  font-weight: 100;
+}
+
+///////////footer fonts///////
+
+html {
+  font-size: 100%;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 75%;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 65%;
+  }
+  @media only screen and (max-width: 300px) {
+    font-size: 50%;
+  }
+}
+
+/////////////route changes //
+#page-transition {
+  width: 100%;
+  color: #060606;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  div {
+    height: 20px;
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+  }
+}
+
+/////
+.products-home-container .swiper-slide-active .product-card {
+  /* transform: scale(1.1) !important; */
+  height: 473px;
+  // width: 304px;
+  opacity: 1 !important;
+  z-index: 2;
+  margin: 0;
+  // @media only screen and (max-width: 748px) {
+  //   height: 383px;
+  //   width: 244px;
+  // }
+}
+#id-overlay-814 {
+  left: auto !important;
+}
+/* ////////////home carousel///// */
+.homeCarousel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .swiper-pagination {
+    display: block;
+  }
+  .swiper-pagination .swiper-pagination-bullet {
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 90%);
+    background: var(--surface) !important;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #060606 !important;
+    &::after {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+///////mui slider range
+.MuiSlider-rail,
+.css-14pt78w-MuiSlider-rail {
+  background-color: #333333 !important;
+  // height: 1px;
+}
+
+/////responsive classes
+.MuiContainer-root {
+  @media only screen and (min-width: 1400px) {
+    max-width: 1400px !important;
+  }
+}
+.noBelowMd {
+  @media only screen and (max-width: 768px) {
+    display: none !important;
+  }
+}
+.noAboveMd {
+  @media only screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+.noBelowLg {
+  @media only screen and (max-width: 1200px) {
+    display: none !important;
+  }
+}
+
+.noAboveLg {
+  @media only screen and (min-width: 1200px) {
+    display: none !important;
+  }
+}
+
+//////mui cart badge color
+.header {
+  .MuiBadge-badge
+    .MuiBadge-standard
+    .MuiBadge-anchorOriginTopRight
+    .MuiBadge-anchorOriginTopRightRectangular
+    .MuiBadge-overlapRectangular
+    .MuiBadge-colorSecondary
+    .BaseBadge-badge
+    .css-jcn4dz-MuiBadge-badge {
+    background-color: #060606 !important;
+  }
+}
+.carousel .thumb.selected {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.thumb {
+  border: 1px solid #f4f4f4 !important;
+  border-radius: 15px;
+}
+
+$rotationAngle: 25deg;
+
+.wrap {
+  position: absolute;
+  bottom: 50%;
+  left: -2rem;
+  transform: rotate(-($rotationAngle));
+}
+
+.ecig {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 28px;
+  background: linear-gradient(0deg, #777 0%, #d7d7d7 100%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -16px;
+    height: 28px;
+    width: 28px;
+    transform: scaleX(0.2);
+    z-index: 1;
+    background-color: #452213;
+    border-radius: 50%;
+  }
+
+  .tip {
+    position: absolute;
+    top: 12px;
+    right: -1px;
+    height: 1px;
+    width: 1px;
+    transform: scaleX(0.2);
+    z-index: 2;
+    background-color: #e12222;
+    border-radius: 50%;
+    animation: pulse 5s ease infinite;
+    box-shadow: 0 0 12px 10px rgba(225, 34, 34, 0.6);
+  }
+}
+
+.smokes {
+  position: absolute;
+  right: -1.25rem;
+  top: -1.25rem;
+  transform: rotate($rotationAngle);
+  z-index: 0;
+}
+.MuiPopperUnstyled-root {
+  z-index: 100 !important;
+}
+
+$smoke-bg-color: rgba(255, 255, 255, 0.15);
+$smoke-scale-x-start: 0.2;
+$smoke-spread: random(66) + 50px;
+$smoke-blur: random(50) + 50 + 1px;
+
+.smoke {
+  display: block;
+  position: absolute;
+  background-color: $smoke-bg-color;
+  height: 2px;
+  width: 2px;
+  border: 0px solid $smoke-bg-color;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale($smoke-scale-x-start);
+}
+
+@for $i from 0 through 10 {
+  $spread: $smoke-spread;
+  $blur: $smoke-blur;
+  .smoke:nth-child(#{$i}) {
+    height: 2px;
+    width: 2px;
+    // bottom: -(random(15) + 10);
+    // left: percent(random(20) + 50);
+    box-shadow: 0 0 $blur $spread rgba(153, 153, 153, 1);
+
+    @if $i % 2 == 0 {
+      animation: smoke-left 10s #{$i}s infinite;
+    } @else {
+      animation: smoke-right 10s #{$i}s infinite;
+    }
+    $delay: #{$i}s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0.73;
+  }
+  66% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
