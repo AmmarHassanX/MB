@@ -5,6 +5,8 @@ import { HomeBanner } from "@salesgenterp/ui-components";
 import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import BrandCarousel from "../src/components/home/Brands/Brands";
+import Hero from "../src/components/home/Hero/Hero";
+import Reveal from "../src/components/motion/Reveal";
 import Newsteller from "../src/components/home/Newsteller/Newsteller";
 import Tags from "../src/components/home/TagsProducts/productsSlider/Tags";
 import Testimoninals from "../src/components/home/Testimoninals/Testimoninals";
@@ -30,9 +32,8 @@ export default function Home({ businessId }) {
   return (
     <div>
       <main>
-        <div
-        //style={{ maxWidth: 1920, margin: "1rem auto" }}
-        >
+        <Hero />
+        <div style={{ maxWidth: "var(--container-max)", margin: "2rem auto", padding: "0 1.5rem" }}>
           <HomeBanner
             apiEndPoint={process.env.API_BASE_URL}
             token={token}
@@ -108,11 +109,19 @@ export default function Home({ businessId }) {
         {/* <FeatureCarousel secondarySlider={secondarySlider} /> */}
         {/* <LandingGallery secondarySlider={secondarySlider} /> */}
         {/* <Blogs /> */}
-        <Tags businessId={businessId} />
+        <Reveal>
+          <Tags businessId={businessId} />
+        </Reveal>
 
-        <TopCategories businessId={businessId} />
+        <div id="home-products">
+          <Reveal>
+            <TopCategories businessId={businessId} />
+          </Reveal>
+        </div>
         {/* <Newsteller /> */}
-        <Testimoninals />
+        <Reveal>
+          <Testimoninals />
+        </Reveal>
         {/* <Faqs /> */}
       </main>
     </div>
