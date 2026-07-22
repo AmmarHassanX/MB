@@ -12,9 +12,9 @@ import { setStores, setToken } from "../../store/Auth";
 import { useDatafetcher } from "../../utilities/hooks/useDatafetcher";
 import useWindowSize from "../../utilities/hooks/useWindowSize";
 import Navigation from "../Navigation/Navigation";
-import TopHeader from "../TopHeader/TopHeader";
 import CartDrawerStack from "../cartDrawer/CartDrawer";
 import SiteFooter from "../redesign/SiteFooter";
+import ScrollProgress from "../motion/ScrollProgress";
 
 const Header = dynamic(() => import("../Header/Header"), { ssr: false });
 
@@ -73,7 +73,7 @@ const Layout = ({ children, businessId }) => {
       sx={{ width: "100%", overflow: "hidden", background: "var(--surface)" }}
       flexDirection="column"
     >
-      {<TopHeader businessId={businessId} />}
+      <ScrollProgress />
       <Header businessId={businessId} />
       {width > 1200 && <Navigation businessId={businessId} />}
       <Box sx={{ width: "100%" }}>

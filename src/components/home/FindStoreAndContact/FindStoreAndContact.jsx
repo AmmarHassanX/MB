@@ -15,7 +15,7 @@ const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICo
 
 export function FindStore() {
   return (
-    <Root>
+    <Root id="find-store">
       <div className="panel">
         <span className="eyebrow">Visit Us</span>
         <h2>Find Our Warehouse</h2>

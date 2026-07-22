@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { PiStarThin } from "react-icons/pi";
 
@@ -31,6 +31,15 @@ const lineUp = {
 };
 
 export default function Hero() {
+  const rootRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: rootRef, offset: ["start start", "end start"] });
+  // As the visitor scrolls the hero out of view, it fades and drifts/scales
+  // slightly — continuous motion tied directly to scroll position, not a
+  // one-time trigger like the Reveal sections below it.
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+
   const scrollToProducts = () => {
     document
       .getElementById("home-products")
@@ -38,8 +47,8 @@ export default function Hero() {
   };
 
   return (
-    <Root>
-      <Inner>
+    <Root ref={rootRef}>
+      <Inner style={{ opacity, y, scale }}>
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div className="badge" variants={lineUp}>
             <span className="dot" />
@@ -91,7 +100,7 @@ const Root = styled.section`
   border-bottom: 1px solid var(--border);
 `;
 
-const Inner = styled.div`
+const Inner = styled(motion.div)`
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 4.5rem 1.5rem 3.5rem;
