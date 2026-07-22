@@ -26,8 +26,9 @@ const Bar = styled(motion.div)`
   top: 0;
   left: 0;
   right: 0;
-  height: 2.5px;
+  height: 4px;
   background: var(--accent);
+  box-shadow: 0 0 12px 1px var(--accent);
   transform-origin: 0% 50%;
   z-index: 2000;
 `;

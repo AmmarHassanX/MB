@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { PiStarThin } from "react-icons/pi";
+import CountUp from "../../motion/CountUp";
 
 /*
   Hero — the Direction 2 statement section.
@@ -74,9 +75,9 @@ export default function Hero() {
             </Link>
           </motion.div>
           <motion.div className="stats" variants={lineUp}>
-            <div className="stat"><strong>3,500+</strong><span>Products in Stock</span></div>
-            <div className="stat"><strong>92</strong><span>Counties Covered</span></div>
-            <div className="stat"><strong>24h</strong><span>Avg. Delivery</span></div>
+            <div className="stat"><strong><CountUp value={3500} suffix="+" /></strong><span>Products in Stock</span></div>
+            <div className="stat"><strong><CountUp value={92} /></strong><span>Counties Covered</span></div>
+            <div className="stat"><strong><CountUp value={24} suffix="h" /></strong><span>Avg. Delivery</span></div>
           </motion.div>
         </motion.div>
       </Inner>
@@ -97,6 +98,7 @@ export default function Hero() {
 
 const Root = styled.section`
   background: var(--bg);
+  background-image: radial-gradient(circle at 50% 0%, var(--accent-soft) 0%, transparent 55%);
   border-bottom: 1px solid var(--border);
 `;
 
@@ -104,6 +106,10 @@ const Inner = styled(motion.div)`
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 4.5rem 1.5rem 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .badge {
     display: inline-flex;
@@ -126,15 +132,19 @@ const Inner = styled(motion.div)`
   }
 
   .sub {
-    max-width: 480px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
     color: var(--text-2);
     font-size: 1.05rem;
     line-height: 1.65;
-    margin: 1.25rem 0 2rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .ctas {
     display: flex;
+    justify-content: center;
     gap: 0.9rem;
     flex-wrap: wrap;
 
@@ -214,6 +224,8 @@ const Inner = styled(motion.div)`
 const Headline = styled(motion.h1)`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   font-family: var(--font-display);
   font-size: clamp(2.7rem, 7vw, 4.8rem);
   font-weight: 600;

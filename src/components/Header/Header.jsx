@@ -55,9 +55,11 @@ const Header = ({ businessId }) => {
   const userDetails = useSelector((state) => state.auth.userDetails);
   const selectedBusiness = data?.find((v) => v.id !== Number(businessId));
   const notSelectedBusiness = data?.find((v) => v.id !== Number(businessId));
+  const { scrollY } = useWindowScroll();
+  const isScrolled = scrollY > 24;
   return (
-    <HeaderSection className="header">
-      <HeaderContainer>
+    <HeaderSection className="header" scrolled={isScrolled}>
+      <HeaderContainer scrolled={isScrolled}>
         <Box
           sx={{
             display: "flex",

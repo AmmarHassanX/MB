@@ -22,8 +22,16 @@ export const HeaderSection = styled.div`
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
-  animation: ${(props) => (props.scroll ? slideDown : "none")} var(--dur-base)
-    var(--ease-out);
+  transition: box-shadow var(--dur-base) var(--ease-out), background var(--dur-base) ease;
+  box-shadow: ${(props) => (props.scrolled ? "0 8px 24px rgba(0,0,0,0.18)" : "none")};
+  background: ${(props) =>
+    props.scrolled
+      ? "color-mix(in srgb, var(--bg) 94%, transparent)"
+      : "color-mix(in srgb, var(--bg) 82%, transparent)"};
+
+  .header-container-inner {
+    transition: padding var(--dur-base) var(--ease-out);
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -34,7 +42,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
-  padding: 0.75rem 0;
+  padding: ${(props) => (props.scrolled ? "0.45rem 0" : "0.75rem 0")};
+  transition: padding var(--dur-base) var(--ease-out);
   justify-content: space-between;
   align-items: center;
   color: var(--text);

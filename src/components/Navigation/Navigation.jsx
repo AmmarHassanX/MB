@@ -59,6 +59,7 @@ const Bar = styled.nav`
     padding: 0.6rem 1.5rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
   }
 
