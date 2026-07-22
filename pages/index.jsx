@@ -8,6 +8,8 @@ import {
 } from "../src/components/redesign/HomeSections";
 import Hero from "../src/components/home/Hero/Hero";
 import Advantage from "../src/components/home/Advantage/Advantage";
+import CategoryShowcase from "../src/components/home/CategoryShowcase/CategoryShowcase";
+import CoverageMap from "../src/components/home/CoverageMap/CoverageMap";
 import Reveal from "../src/components/motion/Reveal";
 
 export default function Home({ businessId }) {
@@ -15,6 +17,8 @@ export default function Home({ businessId }) {
     <main>
       <Hero />
       <Reveal><Advantage /></Reveal>
+      <Reveal><CategoryShowcase /></Reveal>
+      <Reveal><CoverageMap /></Reveal>
       <div id="home-products">
         <Reveal><CategoryTiles businessId={businessId} /></Reveal>
       </div>

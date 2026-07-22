@@ -43,26 +43,31 @@ export default function Hero() {
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div className="badge" variants={lineUp}>
             <span className="dot" />
-            Now Accepting Wholesale Orders
+            Serving Indiana Since 2021
           </motion.div>
           <Headline variants={container}>
-            <motion.span variants={lineUp}>Your Trusted</motion.span>
+            <motion.span variants={lineUp}>Indiana&apos;s Trusted</motion.span>
             <motion.span variants={lineUp}>
-              <em className="accent">Wholesale</em> Partner
+              <em className="accent">Wholesale</em> Distributor
             </motion.span>
           </Headline>
           <motion.p className="sub" variants={lineUp}>
-            Premium vapes, cigars, beverages, and gas station essentials — all
-            under one roof. Bulk pricing, fast delivery, and unmatched quality
-            for retailers nationwide.
+            From our warehouse to your door — delivering premium vapes, cigars,
+            beverages, and gas station supplies across all of Indiana with
+            same-day delivery options.
           </motion.p>
           <motion.div className="ctas" variants={lineUp}>
             <button type="button" className="primary" onClick={scrollToProducts}>
               Shop deals
             </button>
-            <Link href="/account/login">
-              <a className="secondary">Browse Products</a>
+            <Link href="/contact-us">
+              <a className="secondary">Contact Sales</a>
             </Link>
+          </motion.div>
+          <motion.div className="stats" variants={lineUp}>
+            <div className="stat"><strong>3,500+</strong><span>Products in Stock</span></div>
+            <div className="stat"><strong>92</strong><span>Counties Covered</span></div>
+            <div className="stat"><strong>24h</strong><span>Avg. Delivery</span></div>
           </motion.div>
         </motion.div>
       </Inner>
@@ -131,11 +136,12 @@ const Inner = styled.div`
       color: var(--accent-contrast);
       background: var(--accent);
       border: none;
-      border-radius: var(--radius-sm);
-      padding: 0.8rem 1.7rem;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
       cursor: pointer;
       transition: transform var(--dur-fast) var(--ease-out),
-        background var(--dur-fast) ease;
+        background var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+      box-shadow: 0 4px 14px var(--accent-soft);
       &:hover {
         background: var(--accent-hover);
         transform: translateY(-2px);
@@ -146,14 +152,47 @@ const Inner = styled.div`
       font-size: 0.95rem;
       color: var(--text);
       border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      padding: 0.8rem 1.7rem;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
       cursor: pointer;
       transition: border-color var(--dur-fast) ease,
         transform var(--dur-fast) var(--ease-out);
       &:hover {
         border-color: var(--accent);
         transform: translateY(-2px);
+      }
+    }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+    max-width: 560px;
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 0.75rem;
+      text-align: center;
+      transition: transform var(--dur-fast) var(--ease-out);
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      strong {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      span {
+        font-size: 0.8rem;
+        color: var(--text-2);
       }
     }
   }
@@ -175,12 +214,12 @@ const Headline = styled(motion.h1)`
   margin: 0;
 
   .accent {
-    color: var(--accent);
     font-style: normal;
-    position: relative;
     display: inline-block;
-    padding-bottom: 0.08em;
-    border-bottom: 4px solid var(--accent);
+    background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 
