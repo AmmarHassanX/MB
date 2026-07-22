@@ -46,8 +46,8 @@ const SearchHeader = ({ businessId }) => {
             setInputData(e.target.value);
           }}
           onKeyDown={(e) => {
-            if (e?.keyCode === 13) {
-              router.push(`/all/search/${e.target.value}`);
+            if (e?.keyCode === 13 && e.target.value.trim().length > 0) {
+              router.push(`/all/search/${e.target.value.trim()}`);
               setFocus(false);
               setInputData("");
             }

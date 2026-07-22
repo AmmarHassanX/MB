@@ -20,3 +20,39 @@ export default function Reveal({ children, delay = 0 }) {
     </motion.div>
   );
 }
+
+/*
+  RevealStagger — wrap a grid/list; each direct RevealItem child fades up
+  in sequence as the group scrolls into view, instead of all at once.
+  Usage: <RevealStagger><RevealItem>...</RevealItem>...</RevealStagger>
+*/
+const staggerContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+const staggerItem = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+};
+
+export function RevealStagger({ children, className }) {
+  return (
+    <motion.div
+      className={className}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.15 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function RevealItem({ children, className }) {
+  return (
+    <motion.div className={className} variants={staggerItem}>
+      {children}
+    </motion.div>
+  );
+}

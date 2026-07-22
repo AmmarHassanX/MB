@@ -13,88 +13,33 @@ export const SearchContainer = styled.div`
   }
 `;
 export const SearchBox = styled.div`
-  max-width: 654px;
-  min-width: 100%;
-  // height: 3.8rem;
-  height: 54px;
-  padding: 4px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
-  // padding: 1rem 0;
-  // padding-top: 0.8rem;
-  // padding-bottom: 0.8rem;
-  // padding-left: 0.8rem;
-  font-size: 1.3rem;
-  // padding-right: 1rem;
-  background: transparent;
+  gap: 0.65rem;
+  width: 100%;
+  height: 48px;
+  padding: 0 1.25rem;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
-  transition: border-color var(--dur-fast) ease;
-  &:focus-within { border-color: var(--accent); }
-  border-radius: 45.8px;
-  // box-shadow: 0px 0px 2px 1px #07354015;
-  // border: 1px solid ${(props) => props.theme.palette.colors.other}50;
-  // border-radius: 10px;
-  &:hover {
-    // border: 1px solid ${(props) => props.theme.palette.bg.primary};
+  transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+
+  &:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
+
   input {
-    // height: 45px;
-    // color: ${(props) => props.theme.palette.colors.secondary};
-    color: var(--text);
-    // background: ${(props) => props.theme.palette.bg.white};
-    background: transparent;
-    // border-radius: 6px;
-    width: 100%;
-    // height: 100%;
-    outline: none;
-    font-weight: 400;
+    flex: 1;
     border: none;
-    // border-radius: 7px;
-    justify-self: flex-start;
-    font-size: 16px;
-    padding: 0 16px;
-    // border-right: 2px solid ${(props) => props.theme.palette.bg.secondary};
-    // border-radius: 4px;
-    // box-shadow: 0px 0px 10px 2px #07354015;
-    // border-right: 1px solid ${(props) => props.theme.palette.bg.other};
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text);
 
     &::placeholder {
-      font-size: 16px;
       color: var(--text-3);
-      font-weight: 300;
-      // text-transform: uppercase;
-    }
-  }
-  .icon {
-    svg {
-      font-size: 22px;
-      color: var(--accent);
-    }
-    // font-size: 50px;
-    font-weight: 500;
-    // min-width: max-content;
-    // height: fit-content;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    color: ${(props) => props.theme.palette.bg.white};
-
-    span {
-      // height: 45px;
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      padding: 0 1rem;
-      cursor: pointer;
-      // height: 100%;
-      font-weight: 700;
-      color: var(--text-3);
-      // border: 2px solid ${(props) => props.theme.palette.colors.primary};
-      // border-left: 2px solid ${(props) =>
-        props.theme.palette.colors.primary}20;
     }
   }
 `;

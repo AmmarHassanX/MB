@@ -16,6 +16,17 @@ const PERKS = [
   "Temperature-controlled transport",
 ];
 
+// Approximate positions within the map's viewBox, for a stylized (not
+// survey-accurate) reference — precise location lives in the Find Store
+// section's real Google Maps embed.
+const CITIES = [
+  { name: "South Bend", top: "12%", left: "42%" },
+  { name: "Fort Wayne", top: "22%", left: "72%" },
+  { name: "Indianapolis", top: "52%", left: "48%" },
+  { name: "Evansville", top: "88%", left: "22%" },
+  { name: "Gary", top: "10%", left: "18%" },
+];
+
 const STATS = [
   { emoji: "🏪", num: "450+", label: "Active Retail Partners" },
   { emoji: "📦", num: "50K+", label: "Orders Delivered" },
@@ -29,18 +40,45 @@ export default function CoverageMap() {
       <MapRoot>
         <div className="visual">
           <div className="map">
-            <span className="pin" style={{ top: "30%", left: "40%" }} />
-            <span className="pin" style={{ top: "50%", left: "60%" }} />
-            <span className="pin" style={{ top: "70%", left: "35%" }} />
-            <svg viewBox="0 0 400 400" aria-hidden="true">
+            <svg viewBox="0 0 300 400" className="state-shape" aria-label="Outline of the state of Indiana">
+              <defs>
+                <linearGradient id="mbwMapGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="var(--accent)" />
+                  <stop offset="100%" stopColor="var(--accent-hover)" />
+                </linearGradient>
+              </defs>
+              {/* Hand-plotted simplified Indiana outline: flat E/W borders, the
+                  Ohio River's southern curve, and the Lake Michigan notch (NW). */}
               <path
-                d="M 150 50 Q 200 30 250 50 T 300 100 T 280 200 T 250 300 T 200 350 T 150 320 T 100 250 T 80 150 T 120 80 Z"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="2"
-                opacity="0.3"
+                d="M 70 12
+                   L 210 12
+                   L 210 90
+                   L 245 90
+                   L 245 340
+                   L 205 340
+                   L 190 375
+                   L 165 385
+                   L 150 365
+                   L 130 375
+                   L 110 355
+                   L 90 360
+                   L 75 335
+                   L 60 340
+                   L 55 300
+                   L 65 270
+                   L 55 240
+                   L 60 200
+                   L 50 150
+                   L 60 100
+                   L 70 70
+                   Z"
               />
             </svg>
+            {CITIES.map((c) => (
+              <span className="pin" style={{ top: c.top, left: c.left }} key={c.name} title={c.name}>
+                <span className="pin-label">{c.name}</span>
+              </span>
+            ))}
           </div>
         </div>
         <div className="info">
@@ -101,29 +139,57 @@ const MapRoot = styled.section`
 
   .map {
     width: 100%;
-    height: 340px;
+    height: 380px;
     border-radius: var(--radius-md);
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-2);
 
-    svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+    .state-shape {
+      width: 62%;
+      height: 92%;
+      path {
+        fill: url(#mbwMapGrad);
+        stroke: var(--accent-hover);
+        stroke-width: 2;
+      }
     }
   }
 
   .pin {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background: #f59e0b;
     border-radius: 50%;
     border: 3px solid #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
     animation: mapPulse 2s infinite;
+    cursor: default;
+
+    .pin-label {
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--dur-fast) ease;
+    }
+
+    &:hover .pin-label {
+      opacity: 1;
+    }
   }
 
   @keyframes mapPulse {

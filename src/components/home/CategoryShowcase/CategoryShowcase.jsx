@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { PiCigarette, PiCigaretteBold } from "react-icons/pi";
 import { GiGasPump } from "react-icons/gi";
+import { RevealStagger, RevealItem } from "../../motion/Reveal";
 import { MdOutlineLocalDrink } from "react-icons/md";
 
 /*
@@ -27,20 +28,22 @@ export default function CategoryShowcase() {
         <h2>Shop by Category</h2>
         <p>Explore our core product lines — each stocked with top-tier brands and competitive wholesale pricing.</p>
       </div>
-      <div className="grid">
+      <RevealStagger className="grid">
         {CATS.map((c) => (
-          <Link href={`/product-list/${c.key}`} key={c.key}>
-            <a className="card" style={{ "--grad": c.grad }}>
-              <span className="icon">{c.icon}</span>
-              <span className="body">
-                <span className="title">{c.title}</span>
-                <span className="count">{c.count}</span>
-                <span className="arrow">→</span>
-              </span>
-            </a>
-          </Link>
+          <RevealItem key={c.key}>
+            <Link href={`/product-list/${c.key}`}>
+              <a className="card" style={{ "--grad": c.grad }}>
+                <span className="icon">{c.icon}</span>
+                <span className="body">
+                  <span className="title">{c.title}</span>
+                  <span className="count">{c.count}</span>
+                  <span className="arrow">→</span>
+                </span>
+              </a>
+            </Link>
+          </RevealItem>
         ))}
-      </div>
+      </RevealStagger>
     </Root>
   );
 }
