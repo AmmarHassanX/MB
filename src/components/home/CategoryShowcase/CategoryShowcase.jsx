@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PiCigarette, PiCigaretteBold } from "react-icons/pi";
 import { GiGasPump } from "react-icons/gi";
 import { RevealStagger, RevealItem } from "../../motion/Reveal";
+import CountUp from "../../motion/CountUp";
 import { MdOutlineLocalDrink } from "react-icons/md";
 
 /*
@@ -15,10 +16,10 @@ import { MdOutlineLocalDrink } from "react-icons/md";
 */
 
 const CATS = [
-  { key: "vapes", title: "Vapes & Disposables", count: "640+ products", icon: <PiCigaretteBold />, grad: "linear-gradient(135deg, #1a3d2e 0%, #2d6b4f 100%)" },
-  { key: "cigars", title: "Premium Cigars", count: "380+ products", icon: <PiCigarette />, grad: "linear-gradient(135deg, #2a1810 0%, #5c3a24 100%)" },
-  { key: "drinks", title: "Beverages & Drinks", count: "920+ products", icon: <MdOutlineLocalDrink />, grad: "linear-gradient(135deg, #0d2b4a 0%, #1e5285 100%)" },
-  { key: "gas", title: "Gas Station Supplies", count: "460+ products", icon: <GiGasPump />, grad: "linear-gradient(135deg, #3d2e0d 0%, #7a5c1a 100%)" },
+  { key: "vapes", title: "Vapes & Disposables", count: 640, icon: <PiCigaretteBold />, grad: "linear-gradient(135deg, #1a3d2e 0%, #2d6b4f 100%)" },
+  { key: "cigars", title: "Premium Cigars", count: 380, icon: <PiCigarette />, grad: "linear-gradient(135deg, #2a1810 0%, #5c3a24 100%)" },
+  { key: "drinks", title: "Beverages & Drinks", count: 920, icon: <MdOutlineLocalDrink />, grad: "linear-gradient(135deg, #0d2b4a 0%, #1e5285 100%)" },
+  { key: "gas", title: "Gas Station Supplies", count: 460, icon: <GiGasPump />, grad: "linear-gradient(135deg, #3d2e0d 0%, #7a5c1a 100%)" },
 ];
 
 export default function CategoryShowcase() {
@@ -36,7 +37,7 @@ export default function CategoryShowcase() {
                 <span className="icon">{c.icon}</span>
                 <span className="body">
                   <span className="title">{c.title}</span>
-                  <span className="count">{c.count}</span>
+                  <span className="count"><CountUp value={c.count} suffix="+ products" /></span>
                   <span className="arrow">→</span>
                 </span>
               </a>

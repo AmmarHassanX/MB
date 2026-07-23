@@ -10,7 +10,7 @@ import { useInView } from "framer-motion";
   broke the whole page render as a result).
 */
 
-export default function CountUp({ value, prefix = "", suffix = "", duration = 1200 }) {
+export default function CountUp({ value, prefix = "", suffix = "", duration = 1200, decimals = 0 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const [display, setDisplay] = useState(0);
@@ -23,17 +23,18 @@ export default function CountUp({ value, prefix = "", suffix = "", duration = 12
       const progress = Math.min((now - start) / duration, 1);
       // easeOutCubic — fast start, gentle settle
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(eased * value));
+      const current = eased * value;
+      setDisplay(decimals > 0 ? Number(current.toFixed(decimals)) : Math.round(current));
       if (progress < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration]);
+  }, [inView, value, duration, decimals]);
 
   return (
     <span ref={ref}>
       {prefix}
-      {display.toLocaleString()}
+      {decimals > 0 ? display.toFixed(decimals) : display.toLocaleString()}
       {suffix}
     </span>
   );

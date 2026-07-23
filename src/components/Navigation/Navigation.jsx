@@ -54,12 +54,12 @@ const Bar = styled.nav`
   border-bottom: 1px solid var(--border);
 
   .inner {
-    max-width: var(--container-max);
+    max-width: 640px;
     margin: 0 auto;
     padding: 0.6rem 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0.5rem;
   }
 

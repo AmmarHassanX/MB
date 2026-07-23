@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import CountUp from "../../motion/CountUp";
+import { RevealStagger, RevealItem } from "../../motion/Reveal";
 
 /*
   CoverageMap — recreated from the reference spec's "Delivering Across All
@@ -28,10 +30,10 @@ const CITIES = [
 ];
 
 const STATS = [
-  { emoji: "🏪", num: "450+", label: "Active Retail Partners" },
-  { emoji: "📦", num: "50K+", label: "Orders Delivered" },
-  { emoji: "⭐", num: "4.9/5", label: "Customer Rating" },
-  { emoji: "🚚", num: "98%", label: "On-Time Delivery" },
+  { emoji: "🏪", value: 450, suffix: "+", label: "Active Retail Partners" },
+  { emoji: "📦", value: 50, suffix: "K+", label: "Orders Delivered" },
+  { emoji: "⭐", value: 4.9, decimals: 1, suffix: "/5", label: "Customer Rating" },
+  { emoji: "🚚", value: 98, suffix: "%", label: "On-Time Delivery" },
 ];
 
 export default function CoverageMap() {
@@ -84,14 +86,14 @@ export default function CoverageMap() {
         <div className="info">
           <h3>Delivering Across All 92 Indiana Counties</h3>
           <p>From our central Indiana warehouse, we provide fast, reliable delivery to every corner of the state.</p>
-          <ul>
+          <RevealStagger className="perks-list">
             {PERKS.map((p) => (
-              <li key={p}>
+              <RevealItem key={p} className="perk-row">
                 <span className="check">✓</span>
                 {p}
-              </li>
+              </RevealItem>
             ))}
-          </ul>
+          </RevealStagger>
         </div>
       </MapRoot>
 
@@ -100,15 +102,19 @@ export default function CoverageMap() {
           <h2>Trusted by Indiana Retailers</h2>
           <p>Join hundreds of convenience stores, smoke shops, and gas stations across Indiana who trust MB Wholesale.</p>
         </div>
-        <div className="grid">
+        <RevealStagger className="grid">
           {STATS.map((s) => (
-            <div className="stat" key={s.label}>
-              <span className="emoji">{s.emoji}</span>
-              <span className="num">{s.num}</span>
-              <span className="label">{s.label}</span>
-            </div>
+            <RevealItem key={s.label}>
+              <div className="stat">
+                <span className="emoji">{s.emoji}</span>
+                <span className="num">
+                  <CountUp value={s.value} suffix={s.suffix} decimals={s.decimals || 0} />
+                </span>
+                <span className="label">{s.label}</span>
+              </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </StatsRoot>
     </>
   );
@@ -208,12 +214,11 @@ const MapRoot = styled.section`
       color: var(--text-2);
       margin: 0 0 1.5rem;
     }
-    ul {
-      list-style: none;
+    .perks-list {
       margin: 0;
       padding: 0;
     }
-    li {
+    .perk-row {
       display: flex;
       align-items: center;
       gap: 0.75rem;
